@@ -122,6 +122,7 @@ code, pre { font-family: "JetBrains Mono", "Cascadia Code", ui-monospace, Consol
     linear-gradient(to right, var(--border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--border) 1px, transparent 1px);
   background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 0%, transparent 72%);
   mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 0%, transparent 72%);
   opacity: .7;
 }
@@ -348,7 +349,8 @@ html[data-theme="light"] .icon-moon { display: block; }
 /* =========================================================
    Sections
    ========================================================= */
-.section { padding: clamp(56px, 9vh, 96px) 0; }
+.section { padding: clamp(56px, 9vh, 96px) 0; scroll-margin-top: 84px; }
+.hero { scroll-margin-top: 84px; }
 
 .eyebrow {
   font-size: 13px;
