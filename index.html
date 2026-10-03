@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bin · 个人主页</title>
+  <meta name="description" content="Bin 的个人主页 —— 全栈开发、开源爱好者,记录我正在做的事。" />
+  <meta name="author" content="Bin" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bin · 个人主页" />
+  <meta property="og:description" content="全栈开发、开源爱好者,记录我正在做的事。" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    // 在首次渲染前确定主题,避免闪烁
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersLight ? "light" : "dark"));
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <div class="bg" aria-hidden="true">
+    <span class="orb orb--1"></span>
+    <span class="orb orb--2"></span>
+    <span class="orb orb--3"></span>
+    <div class="grid-lines"></div>
+  </div>
+
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="#top">
+        <span class="brand__mark">B</span>
+        <span class="brand__name">Bin</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#skills">技能</a>
+        <a href="#work">作品</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换明暗主题" title="切换明暗主题">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" />
+            <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.7 8.7 0 1 0 11.1 11.1Z" />
+          </svg>
+        </button>
+
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero__inner">
+        <p class="pill reveal">
+          <span class="dot" aria-hidden="true"></span>
+          现在:开放合作与交流
+        </p>
+
+        <h1 class="hero__title reveal">
+          你好,我是 <span class="gradient-text">Bin</span>
+          <span class="wave" aria-hidden="true">👋</span>
+        </h1>
+
+        <p class="hero__typed reveal">
+          <span id="typed"></span><span class="caret" aria-hidden="true"></span>
+        </p>
+
+        <p class="hero__desc reveal">
+          我写代码,也写文档;喜欢把复杂的东西做简单。这里放着我的一些作品、
+          踩过的坑,以及正在折腾的小项目。
+        </p>
+
+        <div class="hero__cta reveal">
+          <a class="btn btn--primary" href="#work">
+            看看我的作品
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5.5 18.5 12 12 18.5" /></svg>
+          </a>
+          <a class="btn btn--ghost" href="#contact">联系我</a>
+        </div>
+
+        <dl class="stats reveal">
+          <div class="stat">
+            <dt>项目</dt>
+            <dd><span data-count="12">0</span>+</dd>
+          </div>
+          <div class="stat">
+            <dt>提交</dt>
+            <dd><span data-count="1400">0</span>+</dd>
+          </div>
+          <div class="stat">
+            <dt>咖啡</dt>
+            <dd><span data-count="999">0</span>+</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow reveal">01 — 关于</p>
+        <h2 class="section__title reveal">把想法做成能用的东西</h2>
+
+        <div class="about">
+          <div class="about__text reveal">
+            <p>
+              我是一名开发者,主要在前端与后端之间来回穿梭。喜欢干净的界面、
+              清晰的接口,以及能被别人看懂并接手的代码。
+            </p>
+            <p>
+              日常关注 Web 性能、开发体验和自动化。写代码之外,也会把学到的东西整理成笔记,
+              希望它们对后来的人有点用。
+            </p>
+
+            <ul class="facts">
+              <li><span>坐标</span><b>中国 · 上海</b></li>
+              <li><span>方向</span><b>Web 全栈 / 工具链</b></li>
+              <li><span>状态</span><b>可接受新的合作</b></li>
+            </ul>
+          </div>
+
+          <div class="about__card reveal">
+            <div class="code-card">
+              <div class="code-card__bar" aria-hidden="true">
+                <i></i><i></i><i></i>
+                <span>profile.ts</span>
+              </div>
+              <pre><code><span class="c-key">const</span> <span class="c-var">me</span> = {
+  <span class="c-prop">name</span>: <span class="c-str">"Bin"</span>,
+  <span class="c-prop">role</span>: <span class="c-str">"Developer"</span>,
+  <span class="c-prop">likes</span>: [<span class="c-str">"干净的代码"</span>, <span class="c-str">"好用的工具"</span>],
+  <span class="c-prop">learning</span>: <span class="c-str">"永远在学"</span>,
+  <span class="c-prop">coffee</span>: <span class="c-num">Infinity</span>,
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <p class="eyebrow reveal">02 — 技能</p>
+        <h2 class="section__title reveal">常用的一堆工具</h2>
+
+        <div class="skill-groups">
+          <article class="card reveal">
+            <h3>前端</h3>
+            <ul class="tags">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Vue</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>后端</h3>
+            <ul class="tags">
+              <li>Node.js</li><li>Python</li><li>PostgreSQL</li><li>REST</li><li>Docker</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>工具与协作</h3>
+            <ul class="tags">
+              <li>Git</li><li>GitHub Actions</li><li>Vite</li><li>Linux</li><li>Figma</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="section" id="work">
+      <div class="container">
+        <p class="eyebrow reveal">03 — 作品</p>
+        <h2 class="section__title reveal">最近在做的</h2>
+
+        <div class="projects">
+          <article class="project reveal">
+            <div class="project__glow" aria-hidden="true"></div>
+            <h3>个人主页</h3>
+            <p>就是你正在看的这一页。纯静态、零依赖,用 GitHub Pages 发布。</p>
+            <ul class="tags tags--sm"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+            <a class="link" href="#top">查看源码 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5.5 18.5 12 12 18.5" /></svg></a>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__glow" aria-hidden="true"></div>
+            <h3>项目二</h3>
+            <p>把你的第二个项目写在这里:做了什么、解决了什么问题、结果如何。</p>
+            <ul class="tags tags--sm"><li>React</li><li>Node</li></ul>
+            <a class="link" href="#contact">了解详情 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5.5 18.5 12 12 18.5" /></svg></a>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__glow" aria-hidden="true"></div>
+            <h3>项目三</h3>
+            <p>占位卡片。想加多少张都可以 —— 复制一段 <code>.project</code> 就够了。</p>
+            <ul class="tags tags--sm"><li>Python</li><li>自动化</li></ul>
+            <a class="link" href="#contact">了解详情 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5.5 18.5 12 12 18.5" /></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--contact" id="contact">
+      <div class="container">
+        <div class="contact reveal">
+          <p class="eyebrow">04 — 联系</p>
+          <h2 class="section__title">聊聊?</h2>
+          <p class="contact__desc">
+            有想法、有项目,或者只是想打个招呼 —— 都欢迎。
+          </p>
+          <div class="contact__actions">
+            <a class="btn btn--primary" id="mail-link" href="mailto:qdb3721@gmail.com">
+              发邮件给我
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5.5 18.5 12 12 18.5" /></svg>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/qdb3721-dev" target="_blank" rel="noreferrer noopener">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Bin · 用 HTML / CSS / JS 手写</p>
+      <p class="footer__meta">托管于 GitHub Pages</p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M5.5 12.5 12 6l6.5 6.5" /></svg>
+  </button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
